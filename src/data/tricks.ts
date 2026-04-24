@@ -7,6 +7,7 @@ import intersectionObserverThumb from "../assets/thumbnails/intersectionObserver
 import optimisticUIThumb from "../assets/thumbnails/optimisticUIUpdates.png";
 import progressStepsThumb from "../assets/thumbnails/progressSteps.png";
 import rechartsThumb from "../assets/thumbnails/recharts.png";
+import requestAnimationFrameThumb from "../assets/thumbnails/requestAnimationFrame.png";
 import scrollAnimationsThumb from "../assets/thumbnails/scrollDrivenAnimations.png";
 import segementedProgressRingThumb from "../assets/thumbnails/segmentedProgressRing.png";
 import useLocalStorageThumb from "../assets/thumbnails/useLocalStorage.png";
@@ -24,6 +25,19 @@ export interface Trick {
 }
 
 const trickList: Trick[] = [
+  {
+    id: "request-animation-frame",
+    title: "requestAnimationFrame",
+    description:
+      "Three rAF patterns: smooth counter with easing, canvas particle rain loop, and throttled scroll listener.",
+    category: "JS",
+    technologies: ["requestAnimationFrame", "Canvas", "animation", "throttle"],
+    thumbnail: requestAnimationFrameThumb,
+    githubUrl:
+      "https://github.com/jinyongnan810/variaty-practices/tree/main/web-tricks/src/tricks/RequestAnimationFrame.tsx",
+    fullscreenMode: "scale",
+    component: () => import("../tricks/RequestAnimationFrame"),
+  },
   {
     id: "segmented-progress-ring",
     title: "Segmented Progress Ring",
