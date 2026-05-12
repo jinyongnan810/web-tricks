@@ -26,6 +26,19 @@ export interface Trick {
 
 const trickList: Trick[] = [
   {
+    id: "react-hook-form",
+    title: "React Hook Form",
+    description:
+      "Realistic project intake form with wrapped inputs, radios, selects, checkbox groups, validation, and live form state.",
+    category: "React",
+    technologies: ["React", "React Hook Form", "forms", "validation"],
+    thumbnail: progressStepsThumb,
+    githubUrl:
+      "https://github.com/jinyongnan810/variaty-practices/tree/main/web-tricks/src/tricks/ReactHookForm.tsx",
+    fullscreenMode: "scale",
+    component: () => import("../tricks/ReactHookForm"),
+  },
+  {
     id: "request-animation-frame",
     title: "requestAnimationFrame",
     description:
