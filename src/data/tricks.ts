@@ -6,6 +6,7 @@ import glassmorphismThumb from "../assets/thumbnails/glassmorphism.png";
 import intersectionObserverThumb from "../assets/thumbnails/intersectionObserver.png";
 import optimisticUIThumb from "../assets/thumbnails/optimisticUIUpdates.png";
 import progressStepsThumb from "../assets/thumbnails/progressSteps.png";
+import reactHookForm from "../assets/thumbnails/reactHookForm.png";
 import rechartsThumb from "../assets/thumbnails/recharts.png";
 import requestAnimationFrameThumb from "../assets/thumbnails/requestAnimationFrame.png";
 import scrollAnimationsThumb from "../assets/thumbnails/scrollDrivenAnimations.png";
@@ -32,7 +33,7 @@ const trickList: Trick[] = [
       "Realistic project intake form with wrapped inputs, radios, selects, checkbox groups, validation, and live form state.",
     category: "React",
     technologies: ["React", "React Hook Form", "forms", "validation"],
-    thumbnail: progressStepsThumb,
+    thumbnail: reactHookForm,
     githubUrl:
       "https://github.com/jinyongnan810/variaty-practices/tree/main/web-tricks/src/tricks/ReactHookForm.tsx",
     fullscreenMode: "scale",

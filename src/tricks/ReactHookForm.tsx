@@ -3,6 +3,8 @@ import {
   Controller,
   type Control,
   type FieldErrors,
+  type FieldPath,
+  type FieldValues,
   type RegisterOptions,
   type UseFormRegister,
   useForm,
@@ -20,6 +22,7 @@ type ProjectFormValues = {
   terms: boolean;
 };
 
+// Shared option shape keeps select, radio, and checkbox controls consistent.
 type Option = {
   label: string;
   value: string;
@@ -60,11 +63,24 @@ const defaultValues: ProjectFormValues = {
   terms: false,
 };
 
-function getErrorMessage(errors: FieldErrors<ProjectFormValues>, name: string) {
-  const error = errors[name as keyof ProjectFormValues];
-  return typeof error?.message === "string" ? error.message : undefined;
+// Pulls a displayable error message from React Hook Form's nested error map.
+function getErrorMessage<TFormValues extends FieldValues>(
+  errors: FieldErrors<TFormValues>,
+  name: FieldPath<TFormValues>,
+) {
+  const error = name.split(".").reduce<unknown>((current, segment) => {
+    if (!current || typeof current !== "object") return undefined;
+    return (current as Record<string, unknown>)[segment];
+  }, errors);
+
+  if (!error || typeof error !== "object" || !("message" in error)) {
+    return undefined;
+  }
+
+  return typeof error.message === "string" ? error.message : undefined;
 }
 
+// Shared wrapper keeps label and validation styling out of individual controls.
 function FieldShell({
   label,
   error,
@@ -87,7 +103,11 @@ function FieldShell({
   );
 }
 
-function TextInput({
+// Uses register because native inputs can stay uncontrolled for better RHF perf.
+function TextInput<
+  TFormValues extends FieldValues,
+  TName extends FieldPath<TFormValues>,
+>({
   label,
   name,
   type = "text",
@@ -97,12 +117,12 @@ function TextInput({
   errors,
 }: {
   label: string;
-  name: "name" | "email";
+  name: TName;
   type?: "email" | "text";
   placeholder: string;
-  register: UseFormRegister<ProjectFormValues>;
-  rules?: RegisterOptions<ProjectFormValues, "name" | "email">;
-  errors: FieldErrors<ProjectFormValues>;
+  register: UseFormRegister<TFormValues>;
+  rules?: RegisterOptions<TFormValues, TName>;
+  errors: FieldErrors<TFormValues>;
 }) {
   return (
     <FieldShell label={label} error={getErrorMessage(errors, name)}>
@@ -116,16 +136,20 @@ function TextInput({
   );
 }
 
-function TextArea({
+// Native textarea follows the same uncontrolled register pattern as TextInput.
+function TextArea<
+  TFormValues extends FieldValues,
+  TName extends FieldPath<TFormValues>,
+>({
   label,
   name,
   placeholder,
   register,
 }: {
   label: string;
-  name: "notes";
+  name: TName;
   placeholder: string;
-  register: UseFormRegister<ProjectFormValues>;
+  register: UseFormRegister<TFormValues>;
 }) {
   return (
     <FieldShell label={label}>
@@ -139,7 +163,11 @@ function TextArea({
   );
 }
 
-function SelectField({
+// Native select can use register directly when it does not need custom state.
+function SelectField<
+  TFormValues extends FieldValues,
+  TName extends FieldPath<TFormValues>,
+>({
   label,
   name,
   register,
@@ -148,11 +176,11 @@ function SelectField({
   errors,
 }: {
   label: string;
-  name: "budget" | "timeline";
-  register: UseFormRegister<ProjectFormValues>;
-  rules?: RegisterOptions<ProjectFormValues, "budget" | "timeline">;
+  name: TName;
+  register: UseFormRegister<TFormValues>;
+  rules?: RegisterOptions<TFormValues, TName>;
   options: Option[];
-  errors: FieldErrors<ProjectFormValues>;
+  errors: FieldErrors<TFormValues>;
 }) {
   return (
     <FieldShell label={label} error={getErrorMessage(errors, name)}>
@@ -171,15 +199,19 @@ function SelectField({
   );
 }
 
-function RadioGroup({
+// Controller bridges custom controlled UI to React Hook Form's form state.
+function RadioGroup<
+  TFormValues extends FieldValues,
+  TName extends FieldPath<TFormValues>,
+>({
   label,
   name,
   control,
   options,
 }: {
   label: string;
-  name: "companySize";
-  control: Control<ProjectFormValues>;
+  name: TName;
+  control: Control<TFormValues>;
   options: Option[];
 }) {
   return (
@@ -218,7 +250,11 @@ function RadioGroup({
   );
 }
 
-function CheckboxGroup({
+// Stores selected option values as a string array through a controlled wrapper.
+function CheckboxGroup<
+  TFormValues extends FieldValues,
+  TName extends FieldPath<TFormValues>,
+>({
   label,
   name,
   control,
@@ -226,16 +262,19 @@ function CheckboxGroup({
   errors,
 }: {
   label: string;
-  name: "goals";
-  control: Control<ProjectFormValues>;
+  name: TName;
+  control: Control<TFormValues>;
   options: Option[];
-  errors: FieldErrors<ProjectFormValues>;
+  errors: FieldErrors<TFormValues>;
 }) {
   return (
     <Controller
       name={name}
       control={control}
-      rules={{ validate: (value) => value.length > 0 || "Choose one goal." }}
+      rules={{
+        validate: (value) =>
+          (Array.isArray(value) && value.length > 0) || "Choose one goal.",
+      }}
       render={({ field }) => (
         <fieldset className="m-0 flex flex-col gap-2 border-0 p-0">
           <legend className="text-xs font-semibold uppercase tracking-normal text-text-tertiary">
@@ -243,7 +282,13 @@ function CheckboxGroup({
           </legend>
           <div className="grid grid-cols-3 gap-2">
             {options.map((option) => {
-              const isChecked = field.value.includes(option.value);
+              // Generic fields can be any value; normalize before array updates.
+              const value: string[] = Array.isArray(field.value)
+                ? field.value.filter(
+                    (item: unknown): item is string => typeof item === "string",
+                  )
+                : [];
+              const isChecked = value.includes(option.value);
 
               return (
                 <label
@@ -259,8 +304,8 @@ function CheckboxGroup({
                     checked={isChecked}
                     onChange={(event) => {
                       const next = event.target.checked
-                        ? [...field.value, option.value]
-                        : field.value.filter((value) => value !== option.value);
+                        ? [...value, option.value]
+                        : value.filter((item) => item !== option.value);
 
                       field.onChange(next);
                     }}
@@ -282,34 +327,42 @@ function CheckboxGroup({
   );
 }
 
-function TermsCheckbox({
+// Handles custom boolean checkboxes while still accepting app-specific rules.
+function BooleanCheckbox<
+  TFormValues extends FieldValues,
+  TName extends FieldPath<TFormValues>,
+>({
+  label,
+  name,
   control,
+  rules,
   errors,
 }: {
-  control: Control<ProjectFormValues>;
-  errors: FieldErrors<ProjectFormValues>;
+  label: string;
+  name: TName;
+  control: Control<TFormValues>;
+  rules?: RegisterOptions<TFormValues, TName>;
+  errors: FieldErrors<TFormValues>;
 }) {
   return (
     <Controller
-      name="terms"
+      name={name}
       control={control}
-      rules={{ validate: (value) => value || "Approval is required." }}
+      rules={rules}
       render={({ field }) => (
         <div className="flex flex-col gap-1">
           <label className="flex cursor-pointer items-start gap-2 rounded-xl border border-border bg-card p-3 text-sm">
             <input
               type="checkbox"
-              checked={field.value}
+              checked={Boolean(field.value)}
               onChange={(event) => field.onChange(event.target.checked)}
               className="mt-1 h-4 w-4 accent-zinc-900"
             />
-            <span className="text-text-secondary">
-              I can be contacted about this project request.
-            </span>
+            <span className="text-text-secondary">{label}</span>
           </label>
-          {getErrorMessage(errors, "terms") ? (
+          {getErrorMessage(errors, name) ? (
             <span className="text-xs font-medium text-rose-600">
-              {getErrorMessage(errors, "terms")}
+              {getErrorMessage(errors, name)}
             </span>
           ) : null}
         </div>
@@ -318,6 +371,7 @@ function TermsCheckbox({
   );
 }
 
+// Watches current form values without converting every input to local React state.
 function LiveSummary({ control }: { control: Control<ProjectFormValues> }) {
   const values = useWatch({ control });
   const selectedGoals = values.goals ?? [];
@@ -378,6 +432,7 @@ export default function ReactHookFormDemo() {
     register,
     reset,
   } = useForm<ProjectFormValues>({
+    // The form itself is strongly typed, but the field components remain generic.
     defaultValues,
     mode: "onBlur",
   });
@@ -469,7 +524,13 @@ export default function ReactHookFormDemo() {
             register={register}
           />
 
-          <TermsCheckbox control={control} errors={errors} />
+          <BooleanCheckbox
+            label="I can be contacted about this project request."
+            name="terms"
+            control={control}
+            rules={{ validate: (value) => value || "Approval is required." }}
+            errors={errors}
+          />
 
           <div className="flex flex-wrap gap-2">
             <button
