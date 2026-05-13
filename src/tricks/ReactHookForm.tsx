@@ -17,6 +17,8 @@ type ProjectFormValues = {
   companySize: "solo" | "team" | "enterprise";
   budget: string;
   timeline: string;
+  from: string;
+  to: string;
   goals: string[];
   notes: string;
   terms: boolean;
@@ -58,6 +60,8 @@ const defaultValues: ProjectFormValues = {
   companySize: "team",
   budget: "",
   timeline: "quarter",
+  from: "",
+  to: "",
   goals: ["prototype"],
   notes: "",
   terms: false,
@@ -118,7 +122,7 @@ function TextInput<
 }: {
   label: string;
   name: TName;
-  type?: "email" | "text";
+  type?: "date" | "email" | "text";
   placeholder: string;
   register: UseFormRegister<TFormValues>;
   rules?: RegisterOptions<TFormValues, TName>;
@@ -382,6 +386,8 @@ function LiveSummary({ control }: { control: Control<ProjectFormValues> }) {
       values.email,
       values.budget,
       values.notes,
+      values.from,
+      values.to,
       values.terms ? "accepted" : "",
       selectedGoals.length ? "goals" : "",
     ].filter(Boolean).length;
@@ -389,9 +395,11 @@ function LiveSummary({ control }: { control: Control<ProjectFormValues> }) {
     selectedGoals.length,
     values.budget,
     values.email,
+    values.from,
     values.name,
     values.notes,
     values.terms,
+    values.to,
   ]);
 
   return (
@@ -407,7 +415,7 @@ function LiveSummary({ control }: { control: Control<ProjectFormValues> }) {
       <div className="grid grid-cols-2 gap-2 text-xs">
         <div className="rounded-xl bg-white p-3">
           <span className="block text-text-tertiary">Completed</span>
-          <strong className="text-lg tabular-nums">{filledFields}/6</strong>
+          <strong className="text-lg tabular-nums">{filledFields}/8</strong>
         </div>
         <div className="rounded-xl bg-white p-3">
           <span className="block text-text-tertiary">Timeline</span>
@@ -429,8 +437,10 @@ export default function ReactHookFormDemo() {
     control,
     formState: { errors, isSubmitting, isSubmitSuccessful },
     handleSubmit,
+    getValues,
     register,
     reset,
+    trigger,
   } = useForm<ProjectFormValues>({
     // The form itself is strongly typed, but the field components remain generic.
     defaultValues,
@@ -440,6 +450,14 @@ export default function ReactHookFormDemo() {
   // The submit handler receives validated, typed values from react-hook-form.
   const onSubmit = (values: ProjectFormValues) => {
     setSubmittedValues(values);
+  };
+
+  // Cross-field date validation only runs when both optional dates are present.
+  const validateDateRange = () => {
+    const from = getValues("from");
+    const to = getValues("to");
+
+    return !from || !to || from < to || "From must be before To.";
   };
 
   return (
@@ -505,6 +523,33 @@ export default function ReactHookFormDemo() {
               name="timeline"
               register={register}
               options={timelineOptions}
+              errors={errors}
+            />
+          </div>
+
+          <div className="grid gap-3 sm:grid-cols-2">
+            <TextInput
+              label="From"
+              name="from"
+              type="date"
+              placeholder="Start date"
+              register={register}
+              rules={{
+                validate: validateDateRange,
+                onChange: () => void trigger("to"),
+              }}
+              errors={errors}
+            />
+            <TextInput
+              label="To"
+              name="to"
+              type="date"
+              placeholder="End date"
+              register={register}
+              rules={{
+                validate: validateDateRange,
+                onChange: () => void trigger("from"),
+              }}
               errors={errors}
             />
           </div>
