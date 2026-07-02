@@ -1,5 +1,6 @@
 import type { ComponentType } from "react";
 
+import antigravityCursorTypingThumb from "../assets/thumbnails/antigravity.png";
 import compositionSearchThumb from "../assets/thumbnails/compositionSearch.png";
 import containerQueriesThumb from "../assets/thumbnails/containerQueries.png";
 import glassmorphismThumb from "../assets/thumbnails/glassmorphism.png";
@@ -26,6 +27,19 @@ export interface Trick {
 }
 
 const trickList: Trick[] = [
+  {
+    id: "antigravity-cursor-typing",
+    title: "Antigravity Cursor & Typing",
+    description:
+      "Mimics the background spotlight cursor effect with a typing text animation on load.",
+    category: "React",
+    technologies: ["React", "CSS radial-gradient", "typing animation"],
+    thumbnail: antigravityCursorTypingThumb,
+    githubUrl:
+      "https://github.com/jinyongnan810/variaty-practices/tree/main/web-tricks/src/tricks/AntigravityCursorTyping.tsx",
+    fullscreenMode: "fill",
+    component: () => import("../tricks/AntigravityCursorTyping"),
+  },
   {
     id: "react-hook-form",
     title: "React Hook Form",
