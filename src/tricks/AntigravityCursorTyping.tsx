@@ -4,7 +4,7 @@ import {
   useState,
   type MouseEvent as ReactMouseEvent,
 } from "react";
-
+// Particle class to represent each particle in the system
 class Particle {
   x: number;
   y: number;
@@ -22,6 +22,7 @@ class Particle {
     this.baseAlpha = Math.random() * 0.3 + 0.1;
   }
 
+  // Update particle position and wrap around the edges
   update(width: number, height: number) {
     this.x += this.vx;
     this.y += this.vy;
@@ -32,6 +33,7 @@ class Particle {
     if (this.y > height) this.y = 0;
   }
 
+  // Draw particle with effects based on distance to mouse
   draw(ctx: CanvasRenderingContext2D, mouseX: number, mouseY: number) {
     const dx = mouseX - this.x;
     const dy = mouseY - this.y;
