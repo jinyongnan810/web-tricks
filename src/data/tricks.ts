@@ -13,6 +13,7 @@ import requestAnimationFrameThumb from "../assets/thumbnails/requestAnimationFra
 import scrollAnimationsThumb from "../assets/thumbnails/scrollDrivenAnimations.png";
 import segementedProgressRingThumb from "../assets/thumbnails/segmentedProgressRing.png";
 import useLocalStorageThumb from "../assets/thumbnails/useLocalStorage.png";
+import youtubeReactionThumb from "../assets/thumbnails/youtubeReaction.png";
 
 export interface Trick {
   id: string;
@@ -27,6 +28,19 @@ export interface Trick {
 }
 
 const trickList: Trick[] = [
+  {
+    id: "youtube-reaction",
+    title: "YouTube Reaction Animations",
+    description:
+      "Mimics YouTube's live reaction feature with floating emoji animations.",
+    category: "React",
+    technologies: ["React", "CSS Animations", "Keyframes"],
+    thumbnail: youtubeReactionThumb,
+    githubUrl:
+      "https://github.com/jinyongnan810/variaty-practices/tree/main/web-tricks/src/tricks/YoutubeReaction.tsx",
+    fullscreenMode: "fill",
+    component: () => import("../tricks/YoutubeReaction"),
+  },
   {
     id: "antigravity-cursor-typing",
     title: "Antigravity Cursor & Typing",
