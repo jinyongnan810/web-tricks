@@ -1,6 +1,7 @@
 import type { ComponentType } from "react";
 
 import antigravityCursorTypingThumb from "../assets/thumbnails/antigravity.png";
+import appleMusicLyricsThumb from "../assets/thumbnails/appleMusicLyrics.png";
 import compositionSearchThumb from "../assets/thumbnails/compositionSearch.png";
 import containerQueriesThumb from "../assets/thumbnails/containerQueries.png";
 import glassmorphismThumb from "../assets/thumbnails/glassmorphism.png";
@@ -28,6 +29,24 @@ export interface Trick {
 }
 
 const trickList: Trick[] = [
+  {
+    id: "apple-music-lyrics",
+    title: "Apple Music Lyrics",
+    description:
+      "Synced scrolling lyrics with word-level animations, moving artwork gradients, and procedural retro synth audio.",
+    category: "React",
+    technologies: [
+      "React",
+      "Web Audio API",
+      "Backdrop Filters",
+      "CSS Animations",
+    ],
+    thumbnail: appleMusicLyricsThumb,
+    githubUrl:
+      "https://github.com/jinyongnan810/variaty-practices/tree/main/web-tricks/src/tricks/AppleMusicLyrics.tsx",
+    fullscreenMode: "fill",
+    component: () => import("../tricks/AppleMusicLyrics"),
+  },
   {
     id: "youtube-reaction",
     title: "YouTube Reaction Animations",
