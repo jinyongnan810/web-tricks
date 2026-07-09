@@ -43,7 +43,7 @@ const trickList: Trick[] = [
     ],
     thumbnail: appleMusicLyricsThumb,
     githubUrl:
-      "https://github.com/jinyongnan810/variaty-practices/tree/main/web-tricks/src/tricks/AppleMusicLyrics.tsx",
+      "https://github.com/jinyongnan810/web-tricks/tree/main/src/tricks/AppleMusicLyrics.tsx",
     fullscreenMode: "fill",
     component: () => import("../tricks/AppleMusicLyrics"),
   },
@@ -56,7 +56,7 @@ const trickList: Trick[] = [
     technologies: ["React", "CSS Animations", "Keyframes"],
     thumbnail: youtubeReactionThumb,
     githubUrl:
-      "https://github.com/jinyongnan810/variaty-practices/tree/main/web-tricks/src/tricks/YoutubeReaction.tsx",
+      "https://github.com/jinyongnan810/web-tricks/tree/main/src/tricks/YoutubeReaction.tsx",
     fullscreenMode: "fill",
     component: () => import("../tricks/YoutubeReaction"),
   },
@@ -69,7 +69,7 @@ const trickList: Trick[] = [
     technologies: ["React", "CSS radial-gradient", "typing animation"],
     thumbnail: antigravityCursorTypingThumb,
     githubUrl:
-      "https://github.com/jinyongnan810/variaty-practices/tree/main/web-tricks/src/tricks/AntigravityCursorTyping.tsx",
+      "https://github.com/jinyongnan810/web-tricks/tree/main/src/tricks/AntigravityCursorTyping.tsx",
     fullscreenMode: "fill",
     component: () => import("../tricks/AntigravityCursorTyping"),
   },
@@ -82,7 +82,7 @@ const trickList: Trick[] = [
     technologies: ["React", "React Hook Form", "forms", "validation"],
     thumbnail: reactHookForm,
     githubUrl:
-      "https://github.com/jinyongnan810/variaty-practices/tree/main/web-tricks/src/tricks/ReactHookForm.tsx",
+      "https://github.com/jinyongnan810/web-tricks/tree/main/src/tricks/ReactHookForm.tsx",
     fullscreenMode: "scale",
     component: () => import("../tricks/ReactHookForm"),
   },
@@ -95,7 +95,7 @@ const trickList: Trick[] = [
     technologies: ["requestAnimationFrame", "Canvas", "animation", "throttle"],
     thumbnail: requestAnimationFrameThumb,
     githubUrl:
-      "https://github.com/jinyongnan810/variaty-practices/tree/main/web-tricks/src/tricks/RequestAnimationFrame.tsx",
+      "https://github.com/jinyongnan810/web-tricks/tree/main/src/tricks/RequestAnimationFrame.tsx",
     fullscreenMode: "scale",
     component: () => import("../tricks/RequestAnimationFrame"),
   },
@@ -108,7 +108,7 @@ const trickList: Trick[] = [
     technologies: ["React", "TypeScript", "SVG arcs", "animation"],
     thumbnail: segementedProgressRingThumb,
     githubUrl:
-      "https://github.com/jinyongnan810/variaty-practices/tree/main/web-tricks/src/tricks/SegmentedProgressRing.tsx",
+      "https://github.com/jinyongnan810/web-tricks/tree/main/src/tricks/SegmentedProgressRing.tsx",
     fullscreenMode: "scale",
     component: () => import("../tricks/SegmentedProgressRing"),
   },
@@ -121,7 +121,7 @@ const trickList: Trick[] = [
     technologies: ["React", "Recharts", "tabs"],
     thumbnail: rechartsThumb,
     githubUrl:
-      "https://github.com/jinyongnan810/variaty-practices/tree/main/web-tricks/src/tricks/BasicRecharts.tsx",
+      "https://github.com/jinyongnan810/web-tricks/tree/main/src/tricks/BasicRecharts.tsx",
     fullscreenMode: "scale",
     component: () => import("../tricks/BasicRecharts"),
   },
@@ -133,7 +133,7 @@ const trickList: Trick[] = [
     technologies: ["Markdown rendering", "Firestore API", "layout"],
     thumbnail: progressStepsThumb,
     githubUrl:
-      "https://github.com/jinyongnan810/variaty-practices/tree/main/web-tricks/src/tricks/KinsPage.tsx",
+      "https://github.com/jinyongnan810/web-tricks/tree/main/src/tricks/KinsPage.tsx",
     component: () => import("../tricks/KinsPage"),
   },
   {
@@ -145,7 +145,7 @@ const trickList: Trick[] = [
     technologies: ["React", "IME composition", "onCompositionStart"],
     thumbnail: compositionSearchThumb,
     githubUrl:
-      "https://github.com/jinyongnan810/variaty-practices/tree/main/web-tricks/src/tricks/CompositionSearch.tsx",
+      "https://github.com/jinyongnan810/web-tricks/tree/main/src/tricks/CompositionSearch.tsx",
     fullscreenMode: "scale",
     component: () => import("../tricks/CompositionSearch"),
   },
@@ -158,7 +158,7 @@ const trickList: Trick[] = [
     technologies: ["backdrop-filter", "CSS", "opacity"],
     thumbnail: glassmorphismThumb,
     githubUrl:
-      "https://github.com/jinyongnan810/variaty-practices/tree/main/web-tricks/src/tricks/Glassmorphism.tsx",
+      "https://github.com/jinyongnan810/web-tricks/tree/main/src/tricks/Glassmorphism.tsx",
     fullscreenMode: "scale",
     component: () => import("../tricks/Glassmorphism"),
   },
@@ -171,7 +171,7 @@ const trickList: Trick[] = [
     technologies: ["React hooks", "localStorage", "JSON"],
     thumbnail: useLocalStorageThumb,
     githubUrl:
-      "https://github.com/jinyongnan810/variaty-practices/tree/main/web-tricks/src/tricks/UseLocalStorage.tsx",
+      "https://github.com/jinyongnan810/web-tricks/tree/main/src/tricks/UseLocalStorage.tsx",
     fullscreenMode: "scale",
     component: () => import("../tricks/UseLocalStorage"),
   },
@@ -184,7 +184,7 @@ const trickList: Trick[] = [
     technologies: ["React state", "progress UI", "buttons"],
     thumbnail: progressStepsThumb,
     githubUrl:
-      "https://github.com/jinyongnan810/variaty-practices/tree/main/web-tricks/src/tricks/ProgressSteps.tsx",
+      "https://github.com/jinyongnan810/web-tricks/tree/main/src/tricks/ProgressSteps.tsx",
     fullscreenMode: "scale",
     component: () => import("../tricks/ProgressSteps"),
   },
@@ -198,7 +198,7 @@ const trickList: Trick[] = [
     technologies: ["DOM", "CSS filter", "timers"],
     thumbnail: progressStepsThumb,
     githubUrl:
-      "https://github.com/jinyongnan810/variaty-practices/tree/main/web-tricks/src/tricks/BlurryLoading.tsx",
+      "https://github.com/jinyongnan810/web-tricks/tree/main/src/tricks/BlurryLoading.tsx",
     component: () => import("../tricks/BlurryLoading"),
   },
   {
@@ -209,7 +209,7 @@ const trickList: Trick[] = [
     technologies: ["Canvas", "game loop", "keyboard input"],
     thumbnail: progressStepsThumb,
     githubUrl:
-      "https://github.com/jinyongnan810/variaty-practices/tree/main/web-tricks/src/tricks/BreakoutGame.tsx",
+      "https://github.com/jinyongnan810/web-tricks/tree/main/src/tricks/BreakoutGame.tsx",
     component: () => import("../tricks/BreakoutGame"),
   },
   {
@@ -220,7 +220,7 @@ const trickList: Trick[] = [
     technologies: ["fetch", "array methods", "DOM"],
     thumbnail: progressStepsThumb,
     githubUrl:
-      "https://github.com/jinyongnan810/variaty-practices/tree/main/web-tricks/src/tricks/DomMethods.tsx",
+      "https://github.com/jinyongnan810/web-tricks/tree/main/src/tricks/DomMethods.tsx",
     component: () => import("../tricks/DomMethods"),
   },
   {
@@ -231,7 +231,7 @@ const trickList: Trick[] = [
     technologies: ["localStorage", "forms", "state"],
     thumbnail: progressStepsThumb,
     githubUrl:
-      "https://github.com/jinyongnan810/variaty-practices/tree/main/web-tricks/src/tricks/ExapanseTracker.tsx",
+      "https://github.com/jinyongnan810/web-tricks/tree/main/src/tricks/ExapanseTracker.tsx",
     component: () => import("../tricks/ExapanseTracker"),
   },
   {
@@ -242,7 +242,7 @@ const trickList: Trick[] = [
     technologies: ["events", "CSS transitions", "classes"],
     thumbnail: progressStepsThumb,
     githubUrl:
-      "https://github.com/jinyongnan810/variaty-practices/tree/main/web-tricks/src/tricks/ExtendingCards.tsx",
+      "https://github.com/jinyongnan810/web-tricks/tree/main/src/tricks/ExtendingCards.tsx",
     component: () => import("../tricks/ExtendingCards"),
   },
   {
@@ -253,7 +253,7 @@ const trickList: Trick[] = [
     technologies: ["events", "DOM", "classes"],
     thumbnail: progressStepsThumb,
     githubUrl:
-      "https://github.com/jinyongnan810/variaty-practices/tree/main/web-tricks/src/tricks/FaqCollapse.tsx",
+      "https://github.com/jinyongnan810/web-tricks/tree/main/src/tricks/FaqCollapse.tsx",
     component: () => import("../tricks/FaqCollapse"),
   },
   {
@@ -264,7 +264,7 @@ const trickList: Trick[] = [
     technologies: ["forms", "validation", "DOM"],
     thumbnail: progressStepsThumb,
     githubUrl:
-      "https://github.com/jinyongnan810/variaty-practices/tree/main/web-tricks/src/tricks/FormValidatorLegacy.tsx",
+      "https://github.com/jinyongnan810/web-tricks/tree/main/src/tricks/FormValidatorLegacy.tsx",
     component: () => import("../tricks/FormValidatorLegacy"),
   },
   {
@@ -275,7 +275,7 @@ const trickList: Trick[] = [
     technologies: ["CSS animation", "labels", "DOM"],
     thumbnail: progressStepsThumb,
     githubUrl:
-      "https://github.com/jinyongnan810/variaty-practices/tree/main/web-tricks/src/tricks/FormWaveAnimation.tsx",
+      "https://github.com/jinyongnan810/web-tricks/tree/main/src/tricks/FormWaveAnimation.tsx",
     component: () => import("../tricks/FormWaveAnimation"),
   },
   {
@@ -286,7 +286,7 @@ const trickList: Trick[] = [
     technologies: ["SVG", "events", "game logic"],
     thumbnail: progressStepsThumb,
     githubUrl:
-      "https://github.com/jinyongnan810/variaty-practices/tree/main/web-tricks/src/tricks/HangmanLegacy.tsx",
+      "https://github.com/jinyongnan810/web-tricks/tree/main/src/tricks/HangmanLegacy.tsx",
     component: () => import("../tricks/HangmanLegacy"),
   },
   {
@@ -297,7 +297,7 @@ const trickList: Trick[] = [
     technologies: ["events", "focus", "transitions"],
     thumbnail: progressStepsThumb,
     githubUrl:
-      "https://github.com/jinyongnan810/variaty-practices/tree/main/web-tricks/src/tricks/HiddenSearch.tsx",
+      "https://github.com/jinyongnan810/web-tricks/tree/main/src/tricks/HiddenSearch.tsx",
     component: () => import("../tricks/HiddenSearch"),
   },
   {
@@ -308,7 +308,7 @@ const trickList: Trick[] = [
     technologies: ["scroll", "fetch", "pagination"],
     thumbnail: progressStepsThumb,
     githubUrl:
-      "https://github.com/jinyongnan810/variaty-practices/tree/main/web-tricks/src/tricks/InfiniteScroll.tsx",
+      "https://github.com/jinyongnan810/web-tricks/tree/main/src/tricks/InfiniteScroll.tsx",
     component: () => import("../tricks/InfiniteScroll"),
   },
   {
@@ -319,7 +319,7 @@ const trickList: Trick[] = [
     technologies: ["KeyboardEvent", "DOM", "events"],
     thumbnail: progressStepsThumb,
     githubUrl:
-      "https://github.com/jinyongnan810/variaty-practices/tree/main/web-tricks/src/tricks/KeyCodes.tsx",
+      "https://github.com/jinyongnan810/web-tricks/tree/main/src/tricks/KeyCodes.tsx",
     component: () => import("../tricks/KeyCodes"),
   },
 
@@ -331,7 +331,7 @@ const trickList: Trick[] = [
     technologies: ["API", "fetch", "DOM"],
     thumbnail: progressStepsThumb,
     githubUrl:
-      "https://github.com/jinyongnan810/variaty-practices/tree/main/web-tricks/src/tricks/LyricsSearch.tsx",
+      "https://github.com/jinyongnan810/web-tricks/tree/main/src/tricks/LyricsSearch.tsx",
     component: () => import("../tricks/LyricsSearch"),
   },
   {
@@ -342,7 +342,7 @@ const trickList: Trick[] = [
     technologies: ["API", "search", "DOM"],
     thumbnail: progressStepsThumb,
     githubUrl:
-      "https://github.com/jinyongnan810/variaty-practices/tree/main/web-tricks/src/tricks/MealSearch.tsx",
+      "https://github.com/jinyongnan810/web-tricks/tree/main/src/tricks/MealSearch.tsx",
     component: () => import("../tricks/MealSearch"),
   },
   {
@@ -353,7 +353,7 @@ const trickList: Trick[] = [
     technologies: ["transforms", "localStorage", "DOM"],
     thumbnail: progressStepsThumb,
     githubUrl:
-      "https://github.com/jinyongnan810/variaty-practices/tree/main/web-tricks/src/tricks/MemoryCards.tsx",
+      "https://github.com/jinyongnan810/web-tricks/tree/main/src/tricks/MemoryCards.tsx",
     component: () => import("../tricks/MemoryCards"),
   },
   {
@@ -364,7 +364,7 @@ const trickList: Trick[] = [
     technologies: ["modal", "menu", "events"],
     thumbnail: progressStepsThumb,
     githubUrl:
-      "https://github.com/jinyongnan810/variaty-practices/tree/main/web-tricks/src/tricks/MenuModal.tsx",
+      "https://github.com/jinyongnan810/web-tricks/tree/main/src/tricks/MenuModal.tsx",
     component: () => import("../tricks/MenuModal"),
   },
   {
@@ -375,7 +375,7 @@ const trickList: Trick[] = [
     technologies: ["grid", "events", "game logic"],
     thumbnail: progressStepsThumb,
     githubUrl:
-      "https://github.com/jinyongnan810/variaty-practices/tree/main/web-tricks/src/tricks/MineSweeper.tsx",
+      "https://github.com/jinyongnan810/web-tricks/tree/main/src/tricks/MineSweeper.tsx",
     component: () => import("../tricks/MineSweeper"),
   },
   {
@@ -386,7 +386,7 @@ const trickList: Trick[] = [
     technologies: ["localStorage", "events", "DOM"],
     thumbnail: progressStepsThumb,
     githubUrl:
-      "https://github.com/jinyongnan810/variaty-practices/tree/main/web-tricks/src/tricks/MovieSeat.tsx",
+      "https://github.com/jinyongnan810/web-tricks/tree/main/src/tricks/MovieSeat.tsx",
     component: () => import("../tricks/MovieSeat"),
   },
   {
@@ -397,7 +397,7 @@ const trickList: Trick[] = [
     technologies: ["audio", "controls", "progress"],
     thumbnail: progressStepsThumb,
     githubUrl:
-      "https://github.com/jinyongnan810/variaty-practices/tree/main/web-tricks/src/tricks/MusicPlayer.tsx",
+      "https://github.com/jinyongnan810/web-tricks/tree/main/src/tricks/MusicPlayer.tsx",
     component: () => import("../tricks/MusicPlayer"),
   },
   {
@@ -408,7 +408,7 @@ const trickList: Trick[] = [
     technologies: ["timers", "random", "DOM"],
     thumbnail: progressStepsThumb,
     githubUrl:
-      "https://github.com/jinyongnan810/variaty-practices/tree/main/web-tricks/src/tricks/RandomChoicePicker.tsx",
+      "https://github.com/jinyongnan810/web-tricks/tree/main/src/tricks/RandomChoicePicker.tsx",
     component: () => import("../tricks/RandomChoicePicker"),
   },
   {
@@ -419,7 +419,7 @@ const trickList: Trick[] = [
     technologies: ["transforms", "navigation", "events"],
     thumbnail: progressStepsThumb,
     githubUrl:
-      "https://github.com/jinyongnan810/variaty-practices/tree/main/web-tricks/src/tricks/RotatingNavigation.tsx",
+      "https://github.com/jinyongnan810/web-tricks/tree/main/src/tricks/RotatingNavigation.tsx",
     component: () => import("../tricks/RotatingNavigation"),
   },
   {
@@ -430,7 +430,7 @@ const trickList: Trick[] = [
     technologies: ["scroll", "classes", "transitions"],
     thumbnail: progressStepsThumb,
     githubUrl:
-      "https://github.com/jinyongnan810/variaty-practices/tree/main/web-tricks/src/tricks/ScrollAnimationLegacy.tsx",
+      "https://github.com/jinyongnan810/web-tricks/tree/main/src/tricks/ScrollAnimationLegacy.tsx",
     component: () => import("../tricks/ScrollAnimationLegacy"),
   },
   {
@@ -441,7 +441,7 @@ const trickList: Trick[] = [
     technologies: ["drag and drop", "list", "events"],
     thumbnail: progressStepsThumb,
     githubUrl:
-      "https://github.com/jinyongnan810/variaty-practices/tree/main/web-tricks/src/tricks/SortableList.tsx",
+      "https://github.com/jinyongnan810/web-tricks/tree/main/src/tricks/SortableList.tsx",
     component: () => import("../tricks/SortableList"),
   },
   {
@@ -452,7 +452,7 @@ const trickList: Trick[] = [
     technologies: ["timers", "input", "game logic"],
     thumbnail: progressStepsThumb,
     githubUrl:
-      "https://github.com/jinyongnan810/variaty-practices/tree/main/web-tricks/src/tricks/TypingGame.tsx",
+      "https://github.com/jinyongnan810/web-tricks/tree/main/src/tricks/TypingGame.tsx",
     component: () => import("../tricks/TypingGame"),
   },
   {
@@ -463,7 +463,7 @@ const trickList: Trick[] = [
     technologies: ["API", "currency", "forms"],
     thumbnail: progressStepsThumb,
     githubUrl:
-      "https://github.com/jinyongnan810/variaty-practices/tree/main/web-tricks/src/tricks/ExchangeRateCalculator.tsx",
+      "https://github.com/jinyongnan810/web-tricks/tree/main/src/tricks/ExchangeRateCalculator.tsx",
     component: () => import("../tricks/ExchangeRateCalculator"),
   },
   {
@@ -474,7 +474,7 @@ const trickList: Trick[] = [
     technologies: ["Date", "timers", "DOM"],
     thumbnail: progressStepsThumb,
     githubUrl:
-      "https://github.com/jinyongnan810/variaty-practices/tree/main/web-tricks/src/tricks/NewYearCountDown.tsx",
+      "https://github.com/jinyongnan810/web-tricks/tree/main/src/tricks/NewYearCountDown.tsx",
     component: () => import("../tricks/NewYearCountDown"),
   },
   {
@@ -485,7 +485,7 @@ const trickList: Trick[] = [
     technologies: ["Web Speech API", "game", "DOM"],
     thumbnail: progressStepsThumb,
     githubUrl:
-      "https://github.com/jinyongnan810/variaty-practices/tree/main/web-tricks/src/tricks/NumberGuessingGame.tsx",
+      "https://github.com/jinyongnan810/web-tricks/tree/main/src/tricks/NumberGuessingGame.tsx",
     component: () => import("../tricks/NumberGuessingGame"),
   },
   {
@@ -496,7 +496,7 @@ const trickList: Trick[] = [
     technologies: ["timers", "animation", "DOM"],
     thumbnail: progressStepsThumb,
     githubUrl:
-      "https://github.com/jinyongnan810/variaty-practices/tree/main/web-tricks/src/tricks/RelaxerLegacy.tsx",
+      "https://github.com/jinyongnan810/web-tricks/tree/main/src/tricks/RelaxerLegacy.tsx",
     component: () => import("../tricks/RelaxerLegacy"),
   },
   {
@@ -507,7 +507,7 @@ const trickList: Trick[] = [
     technologies: ["Sass", "layout", "components"],
     thumbnail: progressStepsThumb,
     githubUrl:
-      "https://github.com/jinyongnan810/variaty-practices/tree/main/web-tricks/src/tricks/SassDemo.tsx",
+      "https://github.com/jinyongnan810/web-tricks/tree/main/src/tricks/SassDemo.tsx",
     component: () => import("../tricks/SassDemo"),
   },
   {
@@ -518,7 +518,7 @@ const trickList: Trick[] = [
     technologies: ["audio", "buttons", "events"],
     thumbnail: progressStepsThumb,
     githubUrl:
-      "https://github.com/jinyongnan810/variaty-practices/tree/main/web-tricks/src/tricks/SoundBoard.tsx",
+      "https://github.com/jinyongnan810/web-tricks/tree/main/src/tricks/SoundBoard.tsx",
     component: () => import("../tricks/SoundBoard"),
   },
   {
@@ -529,7 +529,7 @@ const trickList: Trick[] = [
     technologies: ["SpeechSynthesis", "cards", "modal"],
     thumbnail: progressStepsThumb,
     githubUrl:
-      "https://github.com/jinyongnan810/variaty-practices/tree/main/web-tricks/src/tricks/SpeechTextReader.tsx",
+      "https://github.com/jinyongnan810/web-tricks/tree/main/src/tricks/SpeechTextReader.tsx",
     component: () => import("../tricks/SpeechTextReader"),
   },
   {
@@ -540,7 +540,7 @@ const trickList: Trick[] = [
     technologies: ["hover", "layout", "transitions"],
     thumbnail: progressStepsThumb,
     githubUrl:
-      "https://github.com/jinyongnan810/variaty-practices/tree/main/web-tricks/src/tricks/SplitLandingPage.tsx",
+      "https://github.com/jinyongnan810/web-tricks/tree/main/src/tricks/SplitLandingPage.tsx",
     component: () => import("../tricks/SplitLandingPage"),
   },
   {
@@ -551,7 +551,7 @@ const trickList: Trick[] = [
     technologies: ["state", "UI controls", "images"],
     thumbnail: progressStepsThumb,
     githubUrl:
-      "https://github.com/jinyongnan810/variaty-practices/tree/main/web-tricks/src/tricks/TeslaConfiguration.tsx",
+      "https://github.com/jinyongnan810/web-tricks/tree/main/src/tricks/TeslaConfiguration.tsx",
     component: () => import("../tricks/TeslaConfiguration"),
   },
   {
@@ -562,7 +562,7 @@ const trickList: Trick[] = [
     technologies: ["video", "controls", "progress"],
     thumbnail: progressStepsThumb,
     githubUrl:
-      "https://github.com/jinyongnan810/variaty-practices/tree/main/web-tricks/src/tricks/VideoLegacy.tsx",
+      "https://github.com/jinyongnan810/web-tricks/tree/main/src/tricks/VideoLegacy.tsx",
     component: () => import("../tricks/VideoLegacy"),
   },
   {
@@ -573,7 +573,7 @@ const trickList: Trick[] = [
     technologies: ["layout", "UI", "interactions"],
     thumbnail: progressStepsThumb,
     githubUrl:
-      "https://github.com/jinyongnan810/variaty-practices/tree/main/web-tricks/src/tricks/WinboxLandingPage.tsx",
+      "https://github.com/jinyongnan810/web-tricks/tree/main/src/tricks/WinboxLandingPage.tsx",
     component: () => import("../tricks/WinboxLandingPage"),
   },
   {
@@ -585,7 +585,7 @@ const trickList: Trick[] = [
     technologies: ["animation-timeline", "CSS", "scroll()"],
     thumbnail: scrollAnimationsThumb,
     githubUrl:
-      "https://github.com/jinyongnan810/variaty-practices/tree/main/web-tricks/src/tricks/ScrollAnimations.tsx",
+      "https://github.com/jinyongnan810/web-tricks/tree/main/src/tricks/ScrollAnimations.tsx",
     fullscreenMode: "scale",
     component: () => import("../tricks/ScrollAnimations"),
   },
@@ -598,7 +598,7 @@ const trickList: Trick[] = [
     technologies: ["IntersectionObserver", "JavaScript", "lazy loading"],
     thumbnail: intersectionObserverThumb,
     githubUrl:
-      "https://github.com/jinyongnan810/variaty-practices/tree/main/web-tricks/src/tricks/IntersectionObserverDemo.tsx",
+      "https://github.com/jinyongnan810/web-tricks/tree/main/src/tricks/IntersectionObserverDemo.tsx",
     fullscreenMode: "scale",
     component: () => import("../tricks/IntersectionObserverDemo"),
   },
@@ -611,7 +611,7 @@ const trickList: Trick[] = [
     technologies: ["React", "useState", "async"],
     thumbnail: optimisticUIThumb,
     githubUrl:
-      "https://github.com/jinyongnan810/variaty-practices/tree/main/web-tricks/src/tricks/OptimisticUI.tsx",
+      "https://github.com/jinyongnan810/web-tricks/tree/main/src/tricks/OptimisticUI.tsx",
     fullscreenMode: "scale",
     component: () => import("../tricks/OptimisticUI"),
   },
@@ -624,7 +624,7 @@ const trickList: Trick[] = [
     technologies: ["@container", "CSS", "container-type"],
     thumbnail: containerQueriesThumb,
     githubUrl:
-      "https://github.com/jinyongnan810/variaty-practices/tree/main/web-tricks/src/tricks/ContainerQueries.tsx",
+      "https://github.com/jinyongnan810/web-tricks/tree/main/src/tricks/ContainerQueries.tsx",
     fullscreenMode: "scale",
     component: () => import("../tricks/ContainerQueries"),
   },
@@ -711,7 +711,7 @@ const legacySourceFolderById: Record<string, string> = {
 export const tricks: Trick[] = trickList.map((trick) => {
   const sourceFolder = legacySourceFolderById[trick.id];
   const githubUrl = sourceFolder
-    ? `https://github.com/jinyongnan810/variaty-practices/tree/main/web-tricks/public/legacy-tricks/${sourceFolder}`
+    ? `https://github.com/jinyongnan810/web-tricks/tree/main/public/legacy-tricks/${sourceFolder}`
     : trick.githubUrl;
 
   if (trick.thumbnail === progressStepsThumb && trick.id !== "progress-steps") {

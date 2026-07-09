@@ -64,7 +64,7 @@ Install the Playwright test runner and browser once:
 
 ## Markdown-driven scenarios
 
-You can also author executable browser scenarios in Markdown at [e2e/markdown/scenarios.md](/Users/kin/Documents/GitHub/variaty-practices/web-tricks/e2e/markdown/scenarios.md).
+You can also author executable browser scenarios in Markdown at [e2e/markdown/scenarios.md](e2e/markdown/scenarios.md).
 
 Current supported step patterns are:
 
@@ -77,12 +77,12 @@ Current supported step patterns are:
 - `Reload page`
 - `Take screenshot \`name\``
 
-Those Markdown steps are executed by [e2e/markdown/markdown.spec.ts](/Users/kin/Documents/GitHub/variaty-practices/web-tricks/e2e/markdown/markdown.spec.ts) and [e2e/markdown/runner.ts](/Users/kin/Documents/GitHub/variaty-practices/web-tricks/e2e/markdown/runner.ts), which keeps them inside the normal Playwright runner and report flow.
+Those Markdown steps are executed by [e2e/markdown/markdown.spec.ts](e2e/markdown/markdown.spec.ts) and [e2e/markdown/runner.ts](e2e/markdown/runner.ts), which keeps them inside the normal Playwright runner and report flow.
 
 ## MCP natural-language scenarios
 
 For a looser, agent-driven workflow, author pure natural-language scenarios in
-[e2e/mcp/scenarios.md](/Users/kin/Documents/GitHub/variaty-practices/web-tricks/e2e/mcp/scenarios.md).
+[e2e/mcp/scenarios.md](e2e/mcp/scenarios.md).
 
 This method is intended for a Codex or ChatGPT session that has Playwright MCP
 available. It is not executed directly by the Playwright test runner.
@@ -108,6 +108,6 @@ If you only want to inspect the generated prompt, use:
 
 Supporting scripts:
 
-- [scripts/run-mcp-e2e.mjs](/Users/kin/Documents/GitHub/variaty-practices/web-tricks/scripts/run-mcp-e2e.mjs)
-- [scripts/generate-mcp-e2e-prompt.mjs](/Users/kin/Documents/GitHub/variaty-practices/web-tricks/scripts/generate-mcp-e2e-prompt.mjs)
-- [scripts/mcp-e2e-lib.mjs](/Users/kin/Documents/GitHub/variaty-practices/web-tricks/scripts/mcp-e2e-lib.mjs)
+- [scripts/run-mcp-e2e.mjs](scripts/run-mcp-e2e.mjs)
+- [scripts/generate-mcp-e2e-prompt.mjs](scripts/generate-mcp-e2e-prompt.mjs)
+- [scripts/mcp-e2e-lib.mjs](scripts/mcp-e2e-lib.mjs)

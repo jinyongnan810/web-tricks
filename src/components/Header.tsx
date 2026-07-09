@@ -36,7 +36,7 @@ export default function Header({ filter, onFilterChange }: HeaderProps) {
           </span>
         </Link>
         <a
-          href="https://github.com/jinyongnan810/variaty-practices/tree/main/web-tricks"
+          href="https://github.com/jinyongnan810/web-tricks"
           target="_blank"
           rel="noopener noreferrer"
           className="shrink-0 text-text-primary transition-colors hover:text-text-secondary"
