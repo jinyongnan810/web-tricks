@@ -191,7 +191,7 @@ export default function TrickDetail() {
       aria-label={
         isDemoFullscreen ? "Exit full screen demo" : "Show demo in full screen"
       }
-      className="absolute right-[max(1rem,env(safe-area-inset-right))] top-[max(1rem,env(safe-area-inset-top))] z-10 flex items-center gap-2 rounded-xl border border-white/20 bg-white/10 px-3 py-2 font-body text-xs font-semibold text-black shadow-[0_10px_30px_rgba(15,23,42,0.12)] backdrop-blur-md transition-colors hover:bg-white/14"
+      className="absolute right-[max(1rem,env(safe-area-inset-right))] top-[max(1rem,env(safe-area-inset-top))] z-10 flex items-center gap-2 rounded-xl border border-black/10 bg-white/80 px-3 py-2 font-body text-xs font-semibold text-black shadow-sm backdrop-blur-md transition-colors hover:bg-white"
     >
       {isDemoFullscreen ? <Minimize2 size={16} /> : <Maximize2 size={16} />}
       <span>{isDemoFullscreen ? "Exit full screen" : "Full screen"}</span>
