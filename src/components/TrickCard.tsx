@@ -44,7 +44,7 @@ export default function TrickCard({ trick }: TrickCardProps) {
             target="_blank"
             rel="noopener noreferrer"
             aria-label={`Open ${trick.title} source on GitHub`}
-            className="pointer-events-auto relative z-10 text-text-tertiary transition-colors hover:text-text-primary"
+            className="pointer-events-auto relative z-10 text-text-primary transition-colors hover:text-text-secondary"
           >
             <GithubIcon size={18} />
           </a>

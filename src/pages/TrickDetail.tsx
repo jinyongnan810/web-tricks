@@ -236,7 +236,7 @@ export default function TrickDetail() {
                 href={trick.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-text-secondary hover:text-text-primary transition-colors"
+                className="text-text-primary transition-colors hover:text-text-secondary"
                 aria-label="View Source on GitHub"
               >
                 <GithubIcon size={20} />

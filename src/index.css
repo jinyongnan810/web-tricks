@@ -23,6 +23,20 @@
   --color-text-inverted: #ffffff;
 }
 
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-page: #09090b;
+    --color-card: #18181b;
+    --color-dark: #ffffff;
+    --color-border: #27272a;
+
+    --color-text-primary: #ffffff;
+    --color-text-secondary: #d4d4d8;
+    --color-text-tertiary: #a1a1aa;
+    --color-text-inverted: #000000;
+  }
+}
+
 body {
   margin: 0;
   font-family: var(--font-body);
