@@ -35,6 +35,25 @@ export default function Header({ filter, onFilterChange }: HeaderProps) {
             Web Tricks
           </span>
         </Link>
+      </div>
+
+      <div className="flex w-full items-center justify-between lg:w-auto lg:justify-end lg:gap-8">
+        <nav className="flex flex-wrap items-center gap-x-5 gap-y-3">
+          {isHome &&
+            categories.map((cat) => (
+              <button
+                key={cat.value}
+                onClick={() => onFilterChange(cat.value)}
+                className={`font-body text-sm cursor-pointer transition-colors bg-transparent border-0 p-0 ${
+                  filter === cat.value
+                    ? "font-semibold text-text-primary"
+                    : "font-medium text-text-secondary hover:text-text-primary"
+                }`}
+              >
+                {cat.label}
+              </button>
+            ))}
+        </nav>
         <a
           href="https://github.com/jinyongnan810/web-tricks"
           target="_blank"
@@ -44,23 +63,6 @@ export default function Header({ filter, onFilterChange }: HeaderProps) {
           <GithubIcon size={20} />
         </a>
       </div>
-
-      <nav className="flex w-full flex-wrap items-center gap-x-5 gap-y-3 lg:w-auto lg:justify-end lg:gap-8">
-        {isHome &&
-          categories.map((cat) => (
-            <button
-              key={cat.value}
-              onClick={() => onFilterChange(cat.value)}
-              className={`font-body text-sm cursor-pointer transition-colors bg-transparent border-0 p-0 ${
-                filter === cat.value
-                  ? "font-semibold text-text-primary"
-                  : "font-medium text-text-secondary hover:text-text-primary"
-              }`}
-            >
-              {cat.label}
-            </button>
-          ))}
-      </nav>
     </header>
   );
 }
