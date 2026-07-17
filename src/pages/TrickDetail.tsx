@@ -1,4 +1,4 @@
-import { ArrowLeft, Maximize2, Minimize2 } from "lucide-react";
+import { Maximize2, Minimize2 } from "lucide-react";
 import {
   Suspense,
   lazy,
@@ -9,7 +9,7 @@ import {
   useState,
 } from "react";
 import { createPortal } from "react-dom";
-import { Link, useLocation, useParams } from "react-router";
+import { useParams } from "react-router";
 import GithubIcon from "../components/GithubIcon";
 import { tricks } from "../data/tricks";
 
@@ -18,13 +18,10 @@ const lazyComponents = Object.fromEntries(
 );
 
 export default function TrickDetail() {
-  const location = useLocation();
   const { id } = useParams<{ id: string }>();
   const trick = tricks.find((t) => t.id === id);
   const DemoComponent = id ? lazyComponents[id] : null;
   const fullscreenMode = trick?.fullscreenMode ?? "fill";
-  const shouldRestoreGalleryScroll =
-    location.state?.restoreGalleryScroll === true;
   const demoContainerRef = useRef<HTMLDivElement | null>(null);
   const overlayViewportRef = useRef<HTMLDivElement | null>(null);
   const overlayContentRef = useRef<HTMLDivElement | null>(null);
@@ -214,31 +211,6 @@ export default function TrickDetail() {
   return (
     <>
       <div className="flex min-h-[calc(100vh-65px)] flex-col">
-        {/* Detail Header */}
-        <div className="flex items-center justify-between gap-3 border-b border-border px-4 py-4 sm:px-6 lg:px-20 lg:py-5">
-          <Link
-            to="/"
-            state={{ restoreGalleryScroll: shouldRestoreGalleryScroll }}
-            className="flex items-center gap-3 no-underline text-text-secondary transition-colors hover:text-text-primary"
-          >
-            <ArrowLeft size={20} className="text-text-primary" />
-            <span className="font-body text-sm font-medium">
-              Back to all tricks
-            </span>
-          </Link>
-          <a
-            href={trick.githubUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex shrink-0 items-center gap-2 rounded-lg bg-dark px-4 py-2 text-text-inverted no-underline transition-opacity hover:opacity-80"
-          >
-            <GithubIcon size={16} />
-            <span className="font-body text-[13px] font-semibold">
-              View Source
-            </span>
-          </a>
-        </div>
-
         {/* Content: Demo + Sidebar */}
         <div className="flex min-h-0 flex-1 flex-col xl:flex-row">
           {/* Demo Area */}
@@ -256,9 +228,20 @@ export default function TrickDetail() {
 
           {/* Info Sidebar */}
           <aside className="flex w-full shrink-0 flex-col gap-6 overflow-auto border-t border-border p-5 sm:p-6 lg:p-8 xl:w-[380px] xl:border-t-0 xl:border-l xl:p-8 xl:pt-10">
-            <span className="self-start rounded-full bg-card px-3.5 py-1.5 font-display text-xs font-semibold text-text-secondary">
-              {trick.category}
-            </span>
+            <div className="flex items-center justify-between">
+              <span className="self-start rounded-full bg-card px-3.5 py-1.5 font-display text-xs font-semibold text-text-secondary">
+                {trick.category}
+              </span>
+              <a
+                href={trick.githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-text-secondary hover:text-text-primary transition-colors"
+                aria-label="View Source on GitHub"
+              >
+                <GithubIcon size={20} />
+              </a>
+            </div>
 
             <h2 className="m-0 font-display text-[24px] font-extrabold tracking-tight text-text-primary sm:text-[28px]">
               {trick.title}
