@@ -1,6 +1,7 @@
 import type { ComponentType } from "react";
 
 import antigravityCursorTypingThumb from "../assets/thumbnails/antigravity.png";
+import appleLikeScrollThumb from "../assets/thumbnails/appleLikeScroll.png";
 import appleMusicLyricsThumb from "../assets/thumbnails/appleMusicLyrics.png";
 import compositionSearchThumb from "../assets/thumbnails/compositionSearch.png";
 import containerQueriesThumb from "../assets/thumbnails/containerQueries.png";
@@ -29,6 +30,24 @@ export interface Trick {
 }
 
 const trickList: Trick[] = [
+  {
+    id: "apple-like-scroll",
+    title: "Apple-like Scroll Animations",
+    description:
+      "Stunning scroll-driven animations with zooming images, text reveals, and parallax using pure React and inline CSS variables.",
+    category: "React",
+    technologies: [
+      "React",
+      "CSS Variables",
+      "Scroll Event",
+      "Sticky Positioning",
+    ],
+    thumbnail: appleLikeScrollThumb,
+    githubUrl:
+      "https://github.com/jinyongnan810/web-tricks/tree/main/src/tricks/AppleLikeScroll.tsx",
+    fullscreenMode: "fill",
+    component: () => import("../tricks/AppleLikeScroll"),
+  },
   {
     id: "apple-music-lyrics",
     title: "Apple Music Lyrics",
