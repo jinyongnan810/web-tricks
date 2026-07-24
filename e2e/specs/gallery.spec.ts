@@ -13,24 +13,35 @@ test.describe("gallery", () => {
       page.getByRole("heading", { name: "Browse Tricks" }),
     ).toBeVisible();
     await expect(
-      page.getByRole("link", { name: /Glassmorphism Card/i }),
+      page.getByRole("link", { name: "Open Glassmorphism Card", exact: true }),
     ).toBeVisible();
 
     await page.getByRole("button", { name: "React" }).click();
 
-    await expect(page.getByRole("heading", { name: "React" })).toBeVisible();
     await expect(
-      page.getByRole("link", { name: /Composition Search \(IME\)/i }),
+      page.getByRole("heading", { name: "React", exact: true }),
     ).toBeVisible();
     await expect(
-      page.getByRole("link", { name: /useLocalStorage Hook/i }),
+      page.getByRole("link", {
+        name: "Open Composition Search (IME)",
+        exact: true,
+      }),
     ).toBeVisible();
     await expect(
-      page.getByRole("link", { name: /Glassmorphism Card/i }),
+      page.getByRole("link", {
+        name: "Open useLocalStorage Hook",
+        exact: true,
+      }),
+    ).toBeVisible();
+    await expect(
+      page.getByRole("link", { name: "Open Glassmorphism Card", exact: true }),
     ).toHaveCount(0);
 
     await page
-      .getByRole("link", { name: /Composition Search \(IME\)/i })
+      .getByRole("link", {
+        name: "Open Composition Search (IME)",
+        exact: true,
+      })
       .click();
 
     await expect(
@@ -38,7 +49,7 @@ test.describe("gallery", () => {
     ).toBeVisible();
     await expect(page.getByText("Technologies")).toBeVisible();
     await expect(
-      page.getByRole("link", { name: "Back to all tricks" }),
+      page.getByRole("link", { name: /Web Tricks/i }).first(),
     ).toBeVisible();
   });
 

@@ -2,6 +2,7 @@
 // - switches between bar, line, and pie charts with tabs
 // - uses hardcoded data to show common chart setups
 // - includes interactive legends and a shared custom tooltip
+// - dynamically adapts to light and dark themes using CSS theme tokens
 import { useId, useState } from "react";
 import type { TooltipContentProps, TooltipValueType } from "recharts";
 import {
@@ -25,12 +26,12 @@ type BarSeriesKey = "desktop" | "mobile";
 type LineSeriesKey = "signups" | "activeUsers" | "revenue";
 
 const barSeries = [
-  { key: "desktop" as const, label: "Desktop", color: "#0f172a" },
-  { key: "mobile" as const, label: "Mobile", color: "#2563eb" },
+  { key: "desktop" as const, label: "Desktop", color: "#6366f1" },
+  { key: "mobile" as const, label: "Mobile", color: "#3b82f6" },
 ];
 
 const lineSeries = [
-  { key: "signups" as const, label: "Signups", color: "#2563eb" },
+  { key: "signups" as const, label: "Signups", color: "#3b82f6" },
   { key: "activeUsers" as const, label: "Active Users", color: "#14b8a6" },
   { key: "revenue" as const, label: "Revenue", color: "#f59e0b" },
 ];
@@ -71,8 +72,8 @@ const lineData = [
 ];
 
 const pieData = [
-  { name: "Direct", value: 38, fill: "#0f172a" },
-  { name: "Search", value: 27, fill: "#2563eb" },
+  { name: "Direct", value: 38, fill: "#6366f1" },
+  { name: "Search", value: 27, fill: "#3b82f6" },
   { name: "Referral", value: 19, fill: "#14b8a6" },
   { name: "Social", value: 16, fill: "#f59e0b" },
 ];
@@ -114,7 +115,7 @@ function TabButton({
       className={`rounded-full px-4 py-2 text-sm font-semibold transition-colors ${
         active
           ? "bg-dark text-text-inverted"
-          : "bg-white text-text-secondary border border-border hover:text-text-primary"
+          : "bg-card text-text-secondary border border-border hover:text-text-primary"
       }`}
     >
       {label}
@@ -149,7 +150,7 @@ function InteractiveLegend({
             className={`flex items-center gap-2 rounded-full border px-3 py-1.5 text-sm font-medium transition-all ${
               isSelected
                 ? "border-transparent bg-dark text-text-inverted"
-                : "border-border bg-white text-text-secondary hover:text-text-primary"
+                : "border-border bg-card text-text-secondary hover:text-text-primary"
             } ${isDimmed ? "opacity-55" : ""}`}
           >
             <span
@@ -164,7 +165,7 @@ function InteractiveLegend({
   );
 }
 
-// Shared tooltip renderer with colored dots and rounded card styling.
+// Shared tooltip renderer with colored dots and theme-aware rounded card styling.
 function CustomTooltip({
   active,
   label,
@@ -175,7 +176,7 @@ function CustomTooltip({
   }
 
   return (
-    <div className="min-w-[180px] rounded-2xl border border-border bg-white px-4 py-3 shadow-lg">
+    <div className="min-w-[180px] rounded-2xl border border-border bg-card px-4 py-3 shadow-lg">
       {label !== undefined && (
         <p className="mb-2 text-xs font-semibold uppercase tracking-[0.16em] text-text-tertiary">
           {label}
@@ -188,7 +189,7 @@ function CustomTooltip({
             tooltipEntry.color ??
             tooltipEntry.fill ??
             tooltipEntry.payload?.fill ??
-            "#0f172a";
+            "#6366f1";
           const value = Array.isArray(tooltipEntry.value)
             ? tooltipEntry.value.join(" / ")
             : tooltipEntry.value;
@@ -227,7 +228,7 @@ export default function BasicRecharts() {
   const tabPanelId = `${id}-${activeTab}-panel`;
 
   return (
-    <section className="w-[820px] max-w-full rounded-[28px] border border-border bg-white p-6 shadow-sm md:p-8">
+    <section className="w-[820px] max-w-full rounded-[28px] border border-border bg-page p-6 shadow-sm md:p-8">
       <div className="flex flex-col gap-6">
         <div className="flex flex-col gap-3">
           <span className="text-xs font-semibold uppercase tracking-[0.24em] text-text-tertiary">
@@ -291,20 +292,28 @@ export default function BasicRecharts() {
               <div className="h-[360px] w-full" aria-label="Bar chart demo">
                 <ResponsiveContainer width="100%" height="100%">
                   <BarChart data={barData} barGap={10}>
-                    <CartesianGrid stroke="#d4d4d8" strokeDasharray="3 3" />
+                    <CartesianGrid stroke="var(--color-border)" strokeDasharray="3 3" />
                     <XAxis
                       dataKey="location"
                       tickLine={false}
                       axisLine={false}
+                      stroke="#a1a1aa"
+                      fontSize={12}
                     />
-                    <YAxis tickLine={false} axisLine={false} />
+                    <YAxis
+                      tickLine={false}
+                      axisLine={false}
+                      stroke="#a1a1aa"
+                      fontSize={12}
+                    />
                     <Tooltip
+                      cursor={{ fill: "var(--color-border)", opacity: 0.3 }}
                       content={(props) => <CustomTooltip {...props} />}
                     />
                     <Bar
                       dataKey="desktop"
                       name="Desktop"
-                      fill="#0f172a"
+                      fill="#6366f1"
                       style={{ transition: "fill-opacity 240ms ease" }}
                       fillOpacity={
                         selectedBarSeries === null ||
@@ -317,7 +326,7 @@ export default function BasicRecharts() {
                     <Bar
                       dataKey="mobile"
                       name="Mobile"
-                      fill="#2563eb"
+                      fill="#3b82f6"
                       style={{ transition: "fill-opacity 240ms ease" }}
                       fillOpacity={
                         selectedBarSeries === null ||
@@ -348,17 +357,29 @@ export default function BasicRecharts() {
               <div className="h-[360px] w-full" aria-label="Line chart demo">
                 <ResponsiveContainer width="100%" height="100%">
                   <LineChart data={lineData}>
-                    <CartesianGrid stroke="#d4d4d8" strokeDasharray="3 3" />
-                    <XAxis dataKey="month" tickLine={false} axisLine={false} />
-                    <YAxis tickLine={false} axisLine={false} />
+                    <CartesianGrid stroke="var(--color-border)" strokeDasharray="3 3" />
+                    <XAxis
+                      dataKey="month"
+                      tickLine={false}
+                      axisLine={false}
+                      stroke="#a1a1aa"
+                      fontSize={12}
+                    />
+                    <YAxis
+                      tickLine={false}
+                      axisLine={false}
+                      stroke="#a1a1aa"
+                      fontSize={12}
+                    />
                     <Tooltip
+                      cursor={{ stroke: "var(--color-text-tertiary)", strokeDasharray: "3 3" }}
                       content={(props) => <CustomTooltip {...props} />}
                     />
                     <Line
                       type="monotone"
                       dataKey="signups"
                       name="Signups"
-                      stroke="#2563eb"
+                      stroke="#3b82f6"
                       strokeWidth={3}
                       style={{ transition: "stroke-opacity 240ms ease" }}
                       strokeOpacity={
