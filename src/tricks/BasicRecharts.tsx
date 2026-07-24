@@ -434,27 +434,33 @@ export default function BasicRecharts() {
                       innerRadius={80}
                       outerRadius={122}
                       paddingAngle={1}
-                      shape={(props, index) => (
-                        <Sector
-                          {...props}
-                          style={{
-                            transition:
-                              "opacity 240ms ease, transform 240ms ease, d 240ms ease",
-                          }}
-                          outerRadius={
-                            selectedPieSlice === pieData[index]?.name
-                              ? 132
-                              : props.outerRadius
-                          }
-                          fill={pieData[index]?.fill ?? props.fill}
-                          opacity={
-                            selectedPieSlice === null ||
-                            selectedPieSlice === pieData[index]?.name
-                              ? 1
-                              : 0.28
-                          }
-                        />
-                      )}
+                      shape={(props, index) => {
+                        const item =
+                          typeof index === "number"
+                            ? pieData[index]
+                            : undefined;
+                        return (
+                          <Sector
+                            {...props}
+                            style={{
+                              transition:
+                                "opacity 240ms ease, transform 240ms ease, d 240ms ease",
+                            }}
+                            outerRadius={
+                              selectedPieSlice === item?.name
+                                ? 132
+                                : props.outerRadius
+                            }
+                            fill={item?.fill ?? props.fill}
+                            opacity={
+                              selectedPieSlice === null ||
+                              selectedPieSlice === item?.name
+                                ? 1
+                                : 0.28
+                            }
+                          />
+                        );
+                      }}
                     />
                     <Tooltip
                       content={(props) => <CustomTooltip {...props} />}

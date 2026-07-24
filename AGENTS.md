@@ -92,21 +92,21 @@ When adding a new trick, update all required touchpoints:
 
 Use the smallest check set that matches the change:
 
-- `npm run lint`
-- `npm run typecheck`
-- `npm run build`
-- `npm run test:e2e:specs`
-- `npm run test:e2e:md`
+- `pnpm lint`
+- `pnpm typecheck`
+- `pnpm build`
+- `pnpm test:e2e:specs`
+- `pnpm test:e2e:md`
 
 For broader browser validation:
 
-- `npm run test:e2e`
-- `npm run test:e2e:ui`
+- `pnpm test:e2e`
+- `pnpm test:e2e:ui`
 
 For MCP scenario work:
 
-- `npm run test:e2e:mcp:prompt`
-- `npm run test:e2e:mcp`
+- `pnpm test:e2e:mcp:prompt`
+- `pnpm test:e2e:mcp`
 
 ## Playwright Notes
 

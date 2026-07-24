@@ -28,18 +28,18 @@ Deployed on: https://web-tricks.vercel.app
 
 ## Scripts
 
-- `npm run dev` - start local development server
-- `npm run build` - type-check build and generate production bundle
-- `npm run preview` - preview production build locally
-- `npm run lint` - run lint checks
-- `npm run typecheck` - run TypeScript checks
-- `npm run format` - format project files
-- `npm run test:e2e` - run all Playwright end-to-end tests
-- `npm run test:e2e:specs` - run hand-written Playwright specs from `e2e/specs`
-- `npm run test:e2e:md` - run Markdown-authored Playwright scenarios from `e2e/markdown`
-- `npm run test:e2e:mcp` - start the app and execute pure natural-language scenarios through `codex exec` with Playwright MCP
-- `npm run test:e2e:mcp:prompt` - print the generated MCP prompt without executing it
-- `npm run test:e2e:ui` - open the Playwright UI runner
+- `pnpm dev` - start local development server
+- `pnpm build` - type-check build and generate production bundle
+- `pnpm preview` - preview production build locally
+- `pnpm lint` - run lint checks
+- `pnpm typecheck` - run TypeScript checks
+- `pnpm format` - format project files
+- `pnpm test:e2e` - run all Playwright end-to-end tests
+- `pnpm test:e2e:specs` - run hand-written Playwright specs from `e2e/specs`
+- `pnpm test:e2e:md` - run Markdown-authored Playwright scenarios from `e2e/markdown`
+- `pnpm test:e2e:mcp` - start the app and execute pure natural-language scenarios through `codex exec` with Playwright MCP
+- `pnpm test:e2e:mcp:prompt` - print the generated MCP prompt without executing it
+- `pnpm test:e2e:ui` - open the Playwright UI runner
 
 ## E2E testing
 
@@ -59,8 +59,8 @@ This project now includes Playwright E2E coverage for:
 
 Install the Playwright test runner and browser once:
 
-- `npm install`
-- `npx playwright install chromium`
+- `pnpm install`
+- `pnpm exec playwright install chromium`
 
 ## Markdown-driven scenarios
 
@@ -89,7 +89,7 @@ available. It is not executed directly by the Playwright test runner.
 
 To execute the scenarios end to end:
 
-- `npm run test:e2e:mcp`
+- `pnpm test:e2e:mcp`
 
 That command:
 
@@ -104,7 +104,7 @@ That command:
 
 If you only want to inspect the generated prompt, use:
 
-- `npm run test:e2e:mcp:prompt`
+- `pnpm test:e2e:mcp:prompt`
 
 Supporting scripts:
 

@@ -15,6 +15,6 @@ This is different from:
 The MCP flow is agent-driven instead of code-driven. The recommended workflow is:
 
 1. Start the app locally.
-2. Run `npm run test:e2e:mcp` to generate the MCP execution prompt.
+2. Run `pnpm test:e2e:mcp` to generate the MCP execution prompt.
 3. Give that prompt to an agent session that has Playwright MCP available.
 4. Review the returned screenshots and pass/fail summary.
