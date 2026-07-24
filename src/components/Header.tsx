@@ -26,11 +26,11 @@ export default function Header({ filter, onFilterChange }: HeaderProps) {
           className="flex min-w-0 items-center gap-3 no-underline"
           onClick={() => onFilterChange("All")}
         >
-          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-dark">
-            <span className="font-display text-sm font-bold text-text-inverted">
-              {"</>"}
-            </span>
-          </div>
+          <img
+            src="/favicon.svg"
+            alt="Web Tricks Logo"
+            className="h-8 w-8 shrink-0 rounded-lg object-contain"
+          />
           <span className="font-display text-xl font-extrabold tracking-tight text-text-primary">
             Web Tricks
           </span>
