@@ -1,4 +1,4 @@
-import { Maximize2, Minimize2 } from "lucide-react";
+import { Code2, Maximize2, Minimize2 } from "lucide-react";
 import {
   Suspense,
   lazy,
@@ -10,6 +10,7 @@ import {
 } from "react";
 import { createPortal } from "react-dom";
 import { useParams } from "react-router";
+import CodeHighlighter from "../components/CodeHighlighter";
 import GithubIcon from "../components/GithubIcon";
 import { tricks } from "../data/tricks";
 
@@ -268,6 +269,31 @@ export default function TrickDetail() {
                 ))}
               </div>
             </div>
+
+            {trick.keyPoint && (
+              <>
+                <div className="h-px w-full bg-border" />
+
+                <div className="flex flex-col gap-3">
+                  <div className="flex items-center gap-1.5">
+                    <Code2 size={15} className="text-text-secondary" />
+                    <span className="font-display text-[11px] font-bold uppercase tracking-[2px] text-text-tertiary">
+                      Tech Key Concept
+                    </span>
+                  </div>
+
+                  {trick.keyPoint.explanation && (
+                    <p className="m-0 font-body text-xs leading-relaxed text-text-secondary">
+                      {trick.keyPoint.explanation}
+                    </p>
+                  )}
+
+                  <div className="relative max-h-72 overflow-x-auto overflow-y-auto rounded-xl border border-border bg-[#0f172a] p-3 text-xs leading-relaxed text-[#f8fafc] shadow-inner font-mono">
+                    <CodeHighlighter code={trick.keyPoint.code} />
+                  </div>
+                </div>
+              </>
+            )}
           </aside>
         </div>
       </div>

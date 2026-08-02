@@ -40,6 +40,7 @@ export async function runMarkdownStep(page: Page, step: string) {
   if (match) {
     await page
       .getByRole(match[1] as "button" | "link", { name: match[2] })
+      .first()
       .click();
     return;
   }
@@ -63,9 +64,11 @@ export async function runMarkdownStep(page: Page, step: string) {
     }
 
     await expect(
-      page.getByRole(target as "heading" | "link" | "button" | "textbox", {
-        name: value,
-      }),
+      page
+        .getByRole(target as "heading" | "link" | "button" | "textbox", {
+          name: value,
+        })
+        .first(),
     ).toBeVisible();
     return;
   }

@@ -292,7 +292,10 @@ export default function BasicRecharts() {
               <div className="h-[360px] w-full" aria-label="Bar chart demo">
                 <ResponsiveContainer width="100%" height="100%">
                   <BarChart data={barData} barGap={10}>
-                    <CartesianGrid stroke="var(--color-border)" strokeDasharray="3 3" />
+                    <CartesianGrid
+                      stroke="var(--color-border)"
+                      strokeDasharray="3 3"
+                    />
                     <XAxis
                       dataKey="location"
                       tickLine={false}
@@ -357,7 +360,10 @@ export default function BasicRecharts() {
               <div className="h-[360px] w-full" aria-label="Line chart demo">
                 <ResponsiveContainer width="100%" height="100%">
                   <LineChart data={lineData}>
-                    <CartesianGrid stroke="var(--color-border)" strokeDasharray="3 3" />
+                    <CartesianGrid
+                      stroke="var(--color-border)"
+                      strokeDasharray="3 3"
+                    />
                     <XAxis
                       dataKey="month"
                       tickLine={false}
@@ -372,7 +378,10 @@ export default function BasicRecharts() {
                       fontSize={12}
                     />
                     <Tooltip
-                      cursor={{ stroke: "var(--color-text-tertiary)", strokeDasharray: "3 3" }}
+                      cursor={{
+                        stroke: "var(--color-text-tertiary)",
+                        strokeDasharray: "3 3",
+                      }}
                       content={(props) => <CustomTooltip {...props} />}
                     />
                     <Line

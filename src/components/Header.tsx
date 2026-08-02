@@ -23,6 +23,7 @@ export default function Header({ filter, onFilterChange }: HeaderProps) {
       <div className="flex items-center justify-between gap-4 lg:min-w-0">
         <Link
           to="/"
+          aria-label="Web Tricks - Back to all tricks"
           className="flex min-w-0 items-center gap-3 no-underline"
           onClick={() => onFilterChange("All")}
         >
