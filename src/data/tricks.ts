@@ -100,11 +100,11 @@ sec.style.setProperty("--progress-parabola", (1 - Math.abs(p - 0.5) * 2).toStrin
     id: "apple-music-lyrics",
     title: "Apple Music Lyrics",
     description:
-      "Synced scrolling lyrics with word-level animations, moving artwork gradients, and procedural retro synth audio.",
+      "Apple Music-inspired synced scrolling lyrics with word-level karaoke animations, real audio playback, interactive track switching, and animated artwork gradients.",
     category: "React",
     technologies: [
       "React",
-      "Web Audio API",
+      "HTML5 Audio",
       "Backdrop Filters",
       "CSS Animations",
     ],

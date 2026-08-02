@@ -1,69 +1,33 @@
-import { Link, useLocation } from "react-router";
+import { Link } from "react-router";
 import GithubIcon from "./GithubIcon";
-import type { Category } from "../App";
 
-const categories: { label: string; value: Category }[] = [
-  { label: "All", value: "All" },
-  { label: "CSS", value: "CSS" },
-  { label: "JavaScript", value: "JS" },
-  { label: "React", value: "React" },
-];
-
-interface HeaderProps {
-  filter: Category;
-  onFilterChange: (cat: Category) => void;
-}
-
-export default function Header({ filter, onFilterChange }: HeaderProps) {
-  const location = useLocation();
-  const isHome = location.pathname === "/";
-
+export default function Header() {
   return (
-    <header className="flex flex-col gap-4 border-b border-border px-4 py-4 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-20 lg:py-5">
-      <div className="flex items-center justify-between gap-4 lg:min-w-0">
-        <Link
-          to="/"
-          aria-label="Web Tricks - Back to all tricks"
-          className="flex min-w-0 items-center gap-3 no-underline"
-          onClick={() => onFilterChange("All")}
-        >
-          <img
-            src="/favicon.svg"
-            alt="Web Tricks Logo"
-            className="h-8 w-8 shrink-0 rounded-lg object-contain"
-          />
-          <span className="font-display text-xl font-extrabold tracking-tight text-text-primary">
-            Web Tricks
-          </span>
-        </Link>
-      </div>
+    <header className="flex items-center justify-between border-b border-border px-4 py-4 sm:px-6 lg:px-20 lg:py-5">
+      <Link
+        to="/"
+        aria-label="Web Tricks - Back to all tricks"
+        className="flex items-center gap-3 no-underline"
+      >
+        <img
+          src="/favicon.svg"
+          alt="Web Tricks Logo"
+          className="h-8 w-8 shrink-0 rounded-lg object-contain"
+        />
+        <span className="font-display text-xl font-extrabold tracking-tight text-text-primary">
+          Web Tricks
+        </span>
+      </Link>
 
-      <div className="flex w-full items-center justify-between lg:w-auto lg:justify-end lg:gap-8">
-        <nav className="flex flex-wrap items-center gap-x-5 gap-y-3">
-          {isHome &&
-            categories.map((cat) => (
-              <button
-                key={cat.value}
-                onClick={() => onFilterChange(cat.value)}
-                className={`font-body text-sm cursor-pointer transition-colors bg-transparent border-0 p-0 ${
-                  filter === cat.value
-                    ? "font-semibold text-text-primary"
-                    : "font-medium text-text-secondary hover:text-text-primary"
-                }`}
-              >
-                {cat.label}
-              </button>
-            ))}
-        </nav>
-        <a
-          href="https://github.com/jinyongnan810/web-tricks"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="shrink-0 text-text-primary transition-colors hover:text-text-secondary"
-        >
-          <GithubIcon size={20} />
-        </a>
-      </div>
+      <a
+        href="https://github.com/jinyongnan810/web-tricks"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="GitHub repository"
+        className="shrink-0 text-text-primary transition-colors hover:text-text-secondary"
+      >
+        <GithubIcon size={20} />
+      </a>
     </header>
   );
 }

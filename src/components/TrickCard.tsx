@@ -57,6 +57,24 @@ export default function TrickCard({ trick }: TrickCardProps) {
         <p className="m-0 font-body text-[13px] leading-relaxed text-text-secondary">
           {trick.description}
         </p>
+
+        {trick.technologies.length > 0 && (
+          <div className="mt-1 flex flex-wrap gap-1.5">
+            {trick.technologies.slice(0, 4).map((tech) => (
+              <span
+                key={tech}
+                className="font-body text-[11px] font-medium text-text-tertiary bg-card px-2 py-0.5 rounded-md border border-border/50"
+              >
+                {tech}
+              </span>
+            ))}
+            {trick.technologies.length > 4 && (
+              <span className="font-body text-[11px] font-medium text-text-tertiary px-1 py-0.5">
+                +{trick.technologies.length - 4}
+              </span>
+            )}
+          </div>
+        )}
       </div>
     </article>
   );

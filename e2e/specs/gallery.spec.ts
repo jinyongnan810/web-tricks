@@ -58,4 +58,58 @@ test.describe("gallery", () => {
 
     await expect(page.getByText("Trick not found.")).toBeVisible();
   });
+
+  test("searches tricks by title, category, technologies tag, and description keywords", async ({
+    page,
+  }) => {
+    await page.goto("/");
+
+    const searchInput = page.getByRole("textbox", { name: "Search tricks" });
+    await expect(searchInput).toBeVisible();
+
+    // 1. Search by title keyword
+    await searchInput.fill("Miro");
+    await expect(
+      page.getByRole("link", {
+        name: "Open Miro Sticky Note Canvas",
+        exact: true,
+      }),
+    ).toBeVisible();
+    await expect(
+      page.getByRole("link", { name: "Open Glassmorphism Card", exact: true }),
+    ).toHaveCount(0);
+
+    // 2. Search by technology tag
+    await searchInput.fill("Tailwind");
+    await expect(
+      page.getByRole("link", {
+        name: "Open Miro Sticky Note Canvas",
+        exact: true,
+      }),
+    ).toBeVisible();
+
+    // 3. Search by description keyword
+    await searchInput.fill("zooming");
+    await expect(
+      page.getByRole("link", {
+        name: "Open Apple-like Scroll Animations",
+        exact: true,
+      }),
+    ).toBeVisible();
+
+    // 4. Clear search
+    await page
+      .getByRole("button", { name: "Clear search", exact: true })
+      .click();
+    await expect(searchInput).toHaveValue("");
+    await expect(
+      page.getByRole("link", { name: "Open Glassmorphism Card", exact: true }),
+    ).toBeVisible();
+
+    // 5. Search non-existent keyword for empty state
+    await searchInput.fill("nonexistenttrickkeyword");
+    await expect(page.getByText("No matching tricks found")).toBeVisible();
+    await page.getByRole("button", { name: "Clear search & filters" }).click();
+    await expect(searchInput).toHaveValue("");
+  });
 });
