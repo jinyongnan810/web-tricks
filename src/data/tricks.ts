@@ -7,6 +7,7 @@ import compositionSearchThumb from "../assets/thumbnails/compositionSearch.png";
 import containerQueriesThumb from "../assets/thumbnails/containerQueries.png";
 import glassmorphismThumb from "../assets/thumbnails/glassmorphism.png";
 import intersectionObserverThumb from "../assets/thumbnails/intersectionObserver.png";
+import miroCanvasThumb from "../assets/thumbnails/miroCanvas.png";
 import optimisticUIThumb from "../assets/thumbnails/optimisticUIUpdates.png";
 import progressStepsThumb from "../assets/thumbnails/progressSteps.png";
 import reactHookForm from "../assets/thumbnails/reactHookForm.png";
@@ -30,6 +31,25 @@ export interface Trick {
 }
 
 const trickList: Trick[] = [
+  {
+    id: "miro-canvas",
+    title: "Miro Sticky Note Canvas",
+    description:
+      "Interactive infinite canvas inspired by Miro. Create, drag, resize, and style sticky note stickers with editable text, custom font sizes, text colors, and background palettes.",
+    category: "React",
+    technologies: [
+      "React",
+      "CSS Transforms",
+      "State Management",
+      "Interactive Drag & Resize",
+      "Tailwind CSS",
+    ],
+    thumbnail: miroCanvasThumb,
+    githubUrl:
+      "https://github.com/jinyongnan810/web-tricks/tree/main/src/tricks/MiroCanvas.tsx",
+    fullscreenMode: "fill",
+    component: () => import("../tricks/MiroCanvas"),
+  },
   {
     id: "apple-like-scroll",
     title: "Apple-like Scroll Animations",
