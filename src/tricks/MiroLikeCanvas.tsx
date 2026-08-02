@@ -17,7 +17,7 @@ import {
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 /**
- * Trick Concept: Miro Canvas & Trackpad Pinch/Pan Engine
+ * Trick Concept: Miro-like Canvas & Trackpad Pinch/Pan Engine
  *
  * Essential Concepts:
  * 1. WebKit Gesture & Chrome Wheel Dual Trackpad Handling:
@@ -128,7 +128,7 @@ const INITIAL_STICKERS: Sticker[] = [
   },
 ];
 
-export default function MiroCanvas() {
+export default function MiroLikeCanvas() {
   const [stickers, setStickers] = useState<Sticker[]>(INITIAL_STICKERS);
   const [selectedId, setSelectedId] = useState<string | null>("sticker-1");
 
@@ -412,19 +412,6 @@ export default function MiroCanvas() {
         );
         const canvasX = (mouseX - prev.x) / prev.zoom;
         const canvasY = (mouseY - prev.y) / prev.zoom;
-
-        console.log(
-          `mouse position: ${mouseX}, ${mouseY}, canvas position: ${canvasX}, ${canvasY}, prev zoom: ${prev.zoom}, next zoom: ${nextZoom}`,
-        );
-        console.log(
-          `prev viewport: ${JSON.stringify(prev)}, next viewport: ${JSON.stringify(
-            {
-              x: mouseX - canvasX * nextZoom,
-              y: mouseY - canvasY * nextZoom,
-              zoom: nextZoom,
-            },
-          )} `,
-        );
 
         return {
           x: mouseX - canvasX * nextZoom,
@@ -716,7 +703,7 @@ export default function MiroCanvas() {
             </div>
             <div>
               <h3 className="font-display font-bold text-xs tracking-tight text-text-primary m-0">
-                Miro Sticky Canvas
+                Miro-like Sticky Canvas
               </h3>
               <p className="text-[10px] text-text-tertiary m-0 hidden sm:block">
                 Fixed overlay controls • Pointer-anchored zoom
@@ -807,7 +794,7 @@ export default function MiroCanvas() {
                       style={{ backgroundColor: p.bg }}
                       className={`w-5 h-5 rounded-full border transition-transform hover:scale-110 cursor-pointer ${
                         selectedSticker.bgColor === p.bg
-                          ? "ring-2 ring-amber-400 scale-110 border-white"
+                          ? "ring-1 ring-amber-400 scale-110 border-white"
                           : "border-black/20"
                       }`}
                     />
@@ -837,7 +824,7 @@ export default function MiroCanvas() {
                       style={{ backgroundColor: tc.value }}
                       className={`w-5 h-5 rounded-full border border-white/20 transition-transform hover:scale-110 cursor-pointer ${
                         selectedSticker.textColor === tc.value
-                          ? "ring-2 ring-amber-400 scale-110 border-white"
+                          ? "ring-1 ring-amber-400 scale-110 border-white"
                           : ""
                       }`}
                     />

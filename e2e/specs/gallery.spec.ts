@@ -71,7 +71,7 @@ test.describe("gallery", () => {
     await searchInput.fill("Miro");
     await expect(
       page.getByRole("link", {
-        name: "Open Miro Sticky Note Canvas",
+        name: "Open Miro-like Sticky Note Canvas",
         exact: true,
       }),
     ).toBeVisible();
@@ -83,7 +83,7 @@ test.describe("gallery", () => {
     await searchInput.fill("Tailwind");
     await expect(
       page.getByRole("link", {
-        name: "Open Miro Sticky Note Canvas",
+        name: "Open Miro-like Sticky Note Canvas",
         exact: true,
       }),
     ).toBeVisible();
